@@ -3,7 +3,7 @@ package com.apina.api.models;
 import java.util.Objects;
 
 public class AddressEntity {
-    private int number;
+    private String number;
     private String street;
     private String postcode;
     private String city;
@@ -11,18 +11,18 @@ public class AddressEntity {
     public AddressEntity() {
     }
 
-    public AddressEntity(int number, String street, String postcode, String city) {
+    public AddressEntity(String number, String street, String postcode, String city) {
         this.number = number;
         this.street = street;
         this.postcode = postcode;
         this.city = city;
     }
 
-    public int getNumber() {
+    public String getNumber() {
         return number;
     }
 
-    public AddressEntity setNumber(int number) {
+    public AddressEntity setNumber(String number) {
         this.number = number;
         return this;
     }
@@ -66,7 +66,7 @@ public class AddressEntity {
         if (o == null || getClass() != o.getClass())
             return false;
         AddressEntity addressEntity = (AddressEntity) o;
-        return number == addressEntity.number && Objects.equals(street, addressEntity.street) && Objects.equals(
+        return Objects.equals(number, addressEntity.number) && Objects.equals(street, addressEntity.street) && Objects.equals(
                 postcode, addressEntity.postcode) && Objects.equals(city, addressEntity.city)
                 ;
     }

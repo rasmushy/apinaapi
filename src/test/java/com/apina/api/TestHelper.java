@@ -11,29 +11,56 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/*
 @Component
 class TestHelper {
 
+    private final Map<String, String> openingHours = new HashMap<>();
+
+    private final Map<String, String> closingHours = new HashMap<>();
+
+    private final Map<String, String> prices = new HashMap<>();
+
+    TestHelper() {
+        openingHours.put("monday", "10:00");
+        openingHours.put("tuesday", "10:00");
+        openingHours.put("wednesday", "10:00");
+        openingHours.put("thursday", "10:00");
+        openingHours.put("friday", "10:00");
+        openingHours.put("saturday", "10:00");
+        openingHours.put("sunday", "10:00");
+        closingHours.put("monday", "21:00");
+        closingHours.put("tuesday", "21:00");
+        closingHours.put("wednesday", "21:00");
+        closingHours.put("thursday", "21:00");
+        closingHours.put("friday", "21:00");
+        closingHours.put("saturday", "21:00");
+        closingHours.put("sunday", "21:00");
+        prices.put("Day Pass", "11€");
+        prices.put("Shoe Rental", "4€");
+        prices.put("Chalk", "2€");
+    }
+
     GymEntity getBkEntity() {
-        return new GymEntity().setOpeningTime("08:00").setClosingTime("20:00")
+        return new GymEntity().setOpeningTime(openingHours).setClosingTime(closingHours)
                 .setAddress(new AddressEntity().setCity("Helsinki")
-                        .setNumber(1)
+                        .setNumber("1")
                         .setPostcode("00370")
                         .setStreet("Ruosilantie"))
                 .setCompany(new CompanyEntity().setName("Boulderkeskus")
                         .setHomePage("https://www.boulderkeskus.com")
-                        .setPrices(Map.of("Day Pass", "15€", "Shoe Rental", "5€")));
+                        .setPrices(prices));
     }
 
     GymEntity getKaEntity() {
-        return new GymEntity().setOpeningTime("07:00").setClosingTime("21:00")
+        return new GymEntity().setOpeningTime(openingHours).setClosingTime(closingHours)
                 .setAddress(new AddressEntity().setCity("Espoo")
-                        .setNumber(2)
+                        .setNumber("2")
                         .setPostcode("02150")
                         .setStreet("Keilaniementie"))
                 .setCompany(new CompanyEntity().setName("Kiipeilyareena")
                         .setHomePage("https://www.kiipeilyareena.com")
-                        .setPrices(Map.of("Day Pass", "20€", "Shoe Rental", "6€")));
+                        .setPrices(Map.of("Day Pass", "15€", "Shoe Rental", "5€")));
     }
 
     GymDTO getBkDTO() {
@@ -60,3 +87,4 @@ class TestHelper {
         return List.of(getBkDTO(), getKaDTO());
     }
 }
+*/

@@ -2,7 +2,7 @@ package com.apina.api.dtos;
 
 import com.apina.api.models.AddressEntity;
 
-public record AddressDTO(int number, String street, String postcode, String city) {
+public record AddressDTO(String number, String street, String postcode, String city) {
 
     public AddressDTO(AddressEntity a) {
         this(a.getNumber(), a.getStreet(), a.getPostcode(), a.getCity());

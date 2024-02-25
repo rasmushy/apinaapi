@@ -1,6 +1,5 @@
 package com.apina.api.models;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 public class CompanyEntity {

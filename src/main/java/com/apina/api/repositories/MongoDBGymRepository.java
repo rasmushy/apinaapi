@@ -41,7 +41,7 @@ public class MongoDBGymRepository implements GymRepository {
 
     @PostConstruct
     void init() {
-        gymCollection = client.getDatabase("test").getCollection("gyms", GymEntity.class);
+        gymCollection = client.getDatabase("ApinaData").getCollection("gyms", GymEntity.class);
     }
 
     @Override
@@ -93,8 +93,8 @@ public class MongoDBGymRepository implements GymRepository {
         return gymCollection.find(eq("_id", new ObjectId(id))).first();
     }
     @Override
-    public GymEntity findByAddress(String streenName) {
-        return gymCollection.find(eq("address.street", streenName)).first();
+    public GymEntity findByAddress(String streetName) {
+        return gymCollection.find(eq("address.street", streetName)).first();
     }
 
     @Override

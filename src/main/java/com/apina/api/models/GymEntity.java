@@ -3,6 +3,7 @@ package com.apina.api.models;
 import org.bson.types.ObjectId;
 
 import java.util.Date;
+import java.util.Map;
 import java.util.Objects;
 public class GymEntity {
 
@@ -11,9 +12,10 @@ public class GymEntity {
     private AddressEntity addressEntity;
     private Date createdAt = new Date();
 
-    private String openingTime;
+    private Map<String, String> openingHours;
+    private Map<String, String> closingHours;
 
-    private String closingTime;
+    private String additionalInfo;
 
     public GymEntity() {
     }
@@ -22,14 +24,17 @@ public class GymEntity {
             CompanyEntity companyEntity,
             AddressEntity addressEntity,
             Date createdAt,
-            String openingTime,
-            String closingTime) {
+            Map<String, String> openingTime,
+            Map<String, String> closingTime,
+            String additionalInfo
+    ) {
         this.id = id;
         this.companyEntity = companyEntity;
         this.addressEntity = addressEntity;
         this.createdAt = createdAt;
-        this.openingTime = openingTime;
-        this.closingTime = closingTime;
+        this.openingHours = openingTime;
+        this.closingHours = closingTime;
+        this.additionalInfo = additionalInfo;
     }
 
     public ObjectId getId() {
@@ -68,21 +73,29 @@ public class GymEntity {
         return this;
     }
 
-    public String getOpeningTime() {
-        return openingTime;
+    public Map<String, String> getOpeningTime() {
+        return openingHours;
     }
 
-    public GymEntity setOpeningTime(String openingTime) {
-        this.openingTime = openingTime;
+    public GymEntity setOpeningTime(Map<String, String> openingTime) {
+        this.openingHours = openingTime;
         return this;
     }
 
-    public String getClosingTime() {
-        return closingTime;
+    public Map<String, String> getClosingTime() {
+        return closingHours;
     }
 
-    public GymEntity setClosingTime(String closingTime) {
-        this.closingTime = closingTime;
+    public GymEntity setClosingTime(Map<String, String> closingTime) {
+        this.closingHours = closingTime;
+        return this;
+    }
+
+    public String getAdditionalInfo() {
+        return additionalInfo;
+    }
+    public GymEntity setAdditionalInfo(String additionalInfo) {
+        this.additionalInfo = additionalInfo;
         return this;
     }
 
@@ -93,8 +106,9 @@ public class GymEntity {
                ", companyEntity=" + companyEntity +
                ", addressEntity=" + addressEntity +
                ", createdAt=" + createdAt +
-               ", openingTime=" + openingTime +
-               ", closingTime=" + closingTime +
+               ", openingHours=" + openingHours +
+               ", closingHours=" + closingHours +
+               ", additionalInfo='" + additionalInfo + '\'' +
                '}';
     }
 
@@ -109,13 +123,13 @@ public class GymEntity {
                Objects.equals(companyEntity, gymEntity.companyEntity) &&
                Objects.equals(addressEntity, gymEntity.addressEntity) &&
                Objects.equals(createdAt, gymEntity.createdAt) &&
-               Objects.equals(openingTime, gymEntity.openingTime) &&
-               Objects.equals(closingTime, gymEntity.closingTime);
+               Objects.equals(openingHours, gymEntity.openingHours) &&
+               Objects.equals(closingHours, gymEntity.closingHours);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, companyEntity, addressEntity, createdAt, openingTime, closingTime);
+        return Objects.hash(id, companyEntity, addressEntity, createdAt, openingHours, closingHours);
     }
 
 }
