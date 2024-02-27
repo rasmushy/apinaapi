@@ -14,6 +14,7 @@ import java.util.Collections;
 import java.util.List;
 
 import static com.apina.api.util.ControllerUtils.isAdmin;
+import static com.apina.api.util.ControllerUtils.isCurrentUser;
 //UserController.java
 @RestController
 @RequestMapping("/api/user")
@@ -94,7 +95,7 @@ public class UserController {
     public ResponseEntity<UserDTO> updateUser(@PathVariable String username) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         LOGGER.info("updateUser: {}", authentication);
-        if (isAdmin(authentication)) {
+        if (isAdmin(authentication) || isCurrentUser(authentication, username)) {
             UserDTO user = userService.findByUsername(username).orElse(null);
             if (user != null) {
                 return ResponseEntity.ok(userService.update(user));

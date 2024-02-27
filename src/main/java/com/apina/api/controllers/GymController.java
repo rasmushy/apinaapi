@@ -14,6 +14,7 @@ import java.util.Collections;
 import java.util.List;
 
 import static com.apina.api.util.ControllerUtils.isAdmin;
+import static com.apina.api.util.ControllerUtils.isUser;
 @RestController
 @RequestMapping("/api")
 public class GymController {
@@ -29,7 +30,7 @@ public class GymController {
     public GymDTO postGym(@RequestBody GymDTO gymDTO) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         LOGGER.info("postGym: {}", authentication);
-        if (isAdmin(authentication)) {
+        if (isAdmin(authentication) || isUser(authentication)) {
             return gymService.save(gymDTO);
         }
         return null;
